@@ -1,17 +1,3 @@
-<!--
-  This example requires some changes to your config:
-
-  ```
-  // tailwind.config.js
-  module.exports = {
-    // ...
-    plugins: [
-      // ...
-      require('@tailwindcss/forms'),
-    ],
-  }
-  ```
--->
 <template>
     <!--
       This example requires updating your template:
@@ -62,7 +48,6 @@
     </div>
   </template>
 
-
 <style scoped>
-/* Your CSS code here */
+
 </style>

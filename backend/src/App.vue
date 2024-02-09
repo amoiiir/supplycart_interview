@@ -1,5 +1,6 @@
 <script setup>
 import router from './router';
+// import tailwind from './assets/tailwind.css';
 </script>
 
 <template>

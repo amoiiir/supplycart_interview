@@ -4,6 +4,7 @@ import App from './App.vue'
 import './index.css'
 import store from './store'
 import router from './router'
+import 'tailwindcss/tailwind.css'
 
 createApp(App)
     .use(store)
