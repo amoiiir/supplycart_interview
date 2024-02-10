@@ -28,34 +28,7 @@
   <body>
     <div class="page-holder">
       <!-- navbar-->
-      <header class="header bg-white">
-        <div class="container px-lg-3">
-          <nav class="navbar navbar-expand-lg navbar-light py-3 px-lg-0"><a class="navbar-brand" href="index.html"><span class="fw-bold text-uppercase text-dark">Boutique</span></a>
-            <button class="navbar-toggler navbar-toggler-end" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-              <ul class="navbar-nav me-auto">
-                <li class="nav-item">
-                  <!-- Link--><a class="nav-link active" href="index.html">Home</a>
-                </li>
-                <li class="nav-item">
-                  <!-- Link--><a class="nav-link" href="shop.html">Shop</a>
-                </li>
-                <li class="nav-item">
-                  <!-- Link--><a class="nav-link" href="detail.html">Product detail</a>
-                </li>
-                <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" id="pagesDropdown" href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Pages</a>
-                  <div class="dropdown-menu mt-3 shadow-sm" aria-labelledby="pagesDropdown"><a class="dropdown-item border-0 transition-link" href="index.html">Homepage</a><a class="dropdown-item border-0 transition-link" href="shop.html">Category</a><a class="dropdown-item border-0 transition-link" href="detail.html">Product detail</a><a class="dropdown-item border-0 transition-link" href="cart.html">Shopping cart</a><a class="dropdown-item border-0 transition-link" href="checkout.html">Checkout</a></div>
-                </li>
-              </ul>
-              <ul class="navbar-nav ms-auto">
-                <li class="nav-item"><a class="nav-link" href="cart.html"> <i class="fas fa-dolly-flatbed me-1 text-gray"></i>Cart<small class="text-gray fw-normal">(2)</small></a></li>
-                <li class="nav-item"><a class="nav-link" href="#!"> <i class="far fa-heart me-1"></i><small class="text-gray fw-normal"> (0)</small></a></li>
-                <li class="nav-item"><a class="nav-link" href="#!"> <i class="fas fa-user me-1 text-gray fw-normal"></i>Login</a></li>
-              </ul>
-            </div>
-          </nav>
-        </div>
-      </header>
+      @include('home.header')
       <!--  Modal -->
       <div class="modal fade" id="productView" tabindex="-1">
         <div class="modal-dialog modal-lg modal-dialog-centered">
@@ -97,178 +70,13 @@
       </div>
       <!-- HERO SECTION-->
       <div class="container">
-        <section class="hero pb-3 bg-cover bg-center d-flex align-items-center" style="background: url(img/hero-banner-alt.jpg)">
-          <div class="container py-5">
-            <div class="row px-4 px-lg-5">
-              <div class="col-lg-6">
-                <p class="text-muted small text-uppercase mb-2">New Inspiration 2020</p>
-                <h1 class="h2 text-uppercase mb-3">20% off on new season</h1><a class="btn btn-dark" href="shop.html">Browse collections</a>
-              </div>
-            </div>
-          </div>
-        </section>
+        @include('home.promohero')
         <!-- CATEGORIES SECTION-->
-        <section class="pt-5">
-          <header class="text-center">
-            <p class="small text-muted small text-uppercase mb-1">Carefully created collections</p>
-            <h2 class="h5 text-uppercase mb-4">Browse our categories</h2>
-          </header>
-          <div class="row">
-            <div class="col-md-4"><a class="category-item" href="shop.html"><img class="img-fluid" src="img/cat-img-1.jpg" alt=""/><strong class="category-item-title">Clothes</strong></a>
-            </div>
-            <div class="col-md-4"><a class="category-item mb-4" href="shop.html"><img class="img-fluid" src="img/cat-img-2.jpg" alt=""/><strong class="category-item-title">Shoes</strong></a><a class="category-item" href="shop.html"><img class="img-fluid" src="img/cat-img-3.jpg" alt=""/><strong class="category-item-title">Watches</strong></a>
-            </div>
-            <div class="col-md-4"><a class="category-item" href="shop.html"><img class="img-fluid" src="img/cat-img-4.jpg" alt=""/><strong class="category-item-title">Electronics</strong></a>
-            </div>
-          </div>
-        </section>
+        @include('home.categories')
         <!-- TRENDING PRODUCTS-->
-        <section class="py-5">
-          <header>
-            <p class="small text-muted small text-uppercase mb-1">Made the hard way</p>
-            <h2 class="h5 text-uppercase mb-4">Top trending products</h2>
-          </header>
-          <div class="row">
-            <!-- PRODUCT-->
-            <div class="col-xl-3 col-lg-4 col-sm-6">
-              <div class="product text-center">
-                <div class="position-relative mb-3">
-                  <div class="badge text-white bg-"></div><a class="d-block" href="detail.html"><img class="img-fluid w-100" src="img/product-1.jpg" alt="..."></a>
-                  <div class="product-overlay">
-                    <ul class="mb-0 list-inline">
-                      <li class="list-inline-item m-0 p-0"><a class="btn btn-sm btn-outline-dark" href="#!"><i class="far fa-heart"></i></a></li>
-                      <li class="list-inline-item m-0 p-0"><a class="btn btn-sm btn-dark" href="cart.html">Add to cart</a></li>
-                      <li class="list-inline-item me-0"><a class="btn btn-sm btn-outline-dark" href="#productView" data-bs-toggle="modal"><i class="fas fa-expand"></i></a></li>
-                    </ul>
-                  </div>
-                </div>
-                <h6> <a class="reset-anchor" href="detail.html">Kui Ye Chen’s AirPods</a></h6>
-                <p class="small text-muted">$250</p>
-              </div>
-            </div>
-            <!-- PRODUCT-->
-            <div class="col-xl-3 col-lg-4 col-sm-6">
-              <div class="product text-center">
-                <div class="position-relative mb-3">
-                  <div class="badge text-white bg-primary">Sale</div><a class="d-block" href="detail.html"><img class="img-fluid w-100" src="img/product-2.jpg" alt="..."></a>
-                  <div class="product-overlay">
-                    <ul class="mb-0 list-inline">
-                      <li class="list-inline-item m-0 p-0"><a class="btn btn-sm btn-outline-dark" href="#!"><i class="far fa-heart"></i></a></li>
-                      <li class="list-inline-item m-0 p-0"><a class="btn btn-sm btn-dark" href="cart.html">Add to cart</a></li>
-                      <li class="list-inline-item me-0"><a class="btn btn-sm btn-outline-dark" href="#productView" data-bs-toggle="modal"><i class="fas fa-expand"></i></a></li>
-                    </ul>
-                  </div>
-                </div>
-                <h6> <a class="reset-anchor" href="detail.html">Air Jordan 12 gym red</a></h6>
-                <p class="small text-muted">$300</p>
-              </div>
-            </div>
-            <!-- PRODUCT-->
-            <div class="col-xl-3 col-lg-4 col-sm-6">
-              <div class="product text-center">
-                <div class="position-relative mb-3">
-                  <div class="badge text-white bg-"></div><a class="d-block" href="detail.html"><img class="img-fluid w-100" src="img/product-3.jpg" alt="..."></a>
-                  <div class="product-overlay">
-                    <ul class="mb-0 list-inline">
-                      <li class="list-inline-item m-0 p-0"><a class="btn btn-sm btn-outline-dark" href="#!"><i class="far fa-heart"></i></a></li>
-                      <li class="list-inline-item m-0 p-0"><a class="btn btn-sm btn-dark" href="cart.html">Add to cart</a></li>
-                      <li class="list-inline-item me-0"><a class="btn btn-sm btn-outline-dark" href="#productView" data-bs-toggle="modal"><i class="fas fa-expand"></i></a></li>
-                    </ul>
-                  </div>
-                </div>
-                <h6> <a class="reset-anchor" href="detail.html">Cyan cotton t-shirt</a></h6>
-                <p class="small text-muted">$25</p>
-              </div>
-            </div>
-            <!-- PRODUCT-->
-            <div class="col-xl-3 col-lg-4 col-sm-6">
-              <div class="product text-center">
-                <div class="position-relative mb-3">
-                  <div class="badge text-white bg-info">New</div><a class="d-block" href="detail.html"><img class="img-fluid w-100" src="img/product-4.jpg" alt="..."></a>
-                  <div class="product-overlay">
-                    <ul class="mb-0 list-inline">
-                      <li class="list-inline-item m-0 p-0"><a class="btn btn-sm btn-outline-dark" href="#!"><i class="far fa-heart"></i></a></li>
-                      <li class="list-inline-item m-0 p-0"><a class="btn btn-sm btn-dark" href="cart.html">Add to cart</a></li>
-                      <li class="list-inline-item me-0"><a class="btn btn-sm btn-outline-dark" href="#productView" data-bs-toggle="modal"><i class="fas fa-expand"></i></a></li>
-                    </ul>
-                  </div>
-                </div>
-                <h6> <a class="reset-anchor" href="detail.html">Timex Unisex Originals</a></h6>
-                <p class="small text-muted">$351</p>
-              </div>
-            </div>
-            <!-- PRODUCT-->
-            <div class="col-xl-3 col-lg-4 col-sm-6">
-              <div class="product text-center">
-                <div class="position-relative mb-3">
-                  <div class="badge text-white bg-danger">Sold</div><a class="d-block" href="detail.html"><img class="img-fluid w-100" src="img/product-5.jpg" alt="..."></a>
-                  <div class="product-overlay">
-                    <ul class="mb-0 list-inline">
-                      <li class="list-inline-item m-0 p-0"><a class="btn btn-sm btn-outline-dark" href="#!"><i class="far fa-heart"></i></a></li>
-                      <li class="list-inline-item m-0 p-0"><a class="btn btn-sm btn-dark" href="cart.html">Add to cart</a></li>
-                      <li class="list-inline-item me-0"><a class="btn btn-sm btn-outline-dark" href="#productView" data-bs-toggle="modal"><i class="fas fa-expand"></i></a></li>
-                    </ul>
-                  </div>
-                </div>
-                <h6> <a class="reset-anchor" href="detail.html">Red digital smartwatch</a></h6>
-                <p class="small text-muted">$250</p>
-              </div>
-            </div>
-            <!-- PRODUCT-->
-            <div class="col-xl-3 col-lg-4 col-sm-6">
-              <div class="product text-center">
-                <div class="position-relative mb-3">
-                  <div class="badge text-white bg-"></div><a class="d-block" href="detail.html"><img class="img-fluid w-100" src="img/product-6.jpg" alt="..."></a>
-                  <div class="product-overlay">
-                    <ul class="mb-0 list-inline">
-                      <li class="list-inline-item m-0 p-0"><a class="btn btn-sm btn-outline-dark" href="#!"><i class="far fa-heart"></i></a></li>
-                      <li class="list-inline-item m-0 p-0"><a class="btn btn-sm btn-dark" href="cart.html">Add to cart</a></li>
-                      <li class="list-inline-item me-0"><a class="btn btn-sm btn-outline-dark" href="#productView" data-bs-toggle="modal"><i class="fas fa-expand"></i></a></li>
-                    </ul>
-                  </div>
-                </div>
-                <h6> <a class="reset-anchor" href="detail.html">Nike air max 95</a></h6>
-                <p class="small text-muted">$300</p>
-              </div>
-            </div>
-            <!-- PRODUCT-->
-            <div class="col-xl-3 col-lg-4 col-sm-6">
-              <div class="product text-center">
-                <div class="position-relative mb-3">
-                  <div class="badge text-white bg-"></div><a class="d-block" href="detail.html"><img class="img-fluid w-100" src="img/product-7.jpg" alt="..."></a>
-                  <div class="product-overlay">
-                    <ul class="mb-0 list-inline">
-                      <li class="list-inline-item m-0 p-0"><a class="btn btn-sm btn-outline-dark" href="#!"><i class="far fa-heart"></i></a></li>
-                      <li class="list-inline-item m-0 p-0"><a class="btn btn-sm btn-dark" href="cart.html">Add to cart</a></li>
-                      <li class="list-inline-item me-0"><a class="btn btn-sm btn-outline-dark" href="#productView" data-bs-toggle="modal"><i class="fas fa-expand"></i></a></li>
-                    </ul>
-                  </div>
-                </div>
-                <h6> <a class="reset-anchor" href="detail.html">Joemalone Women prefume</a></h6>
-                <p class="small text-muted">$25</p>
-              </div>
-            </div>
-            <!-- PRODUCT-->
-            <div class="col-xl-3 col-lg-4 col-sm-6">
-              <div class="product text-center">
-                <div class="position-relative mb-3">
-                  <div class="badge text-white bg-"></div><a class="d-block" href="detail.html"><img class="img-fluid w-100" src="img/product-8.jpg" alt="..."></a>
-                  <div class="product-overlay">
-                    <ul class="mb-0 list-inline">
-                      <li class="list-inline-item m-0 p-0"><a class="btn btn-sm btn-outline-dark" href="#!"><i class="far fa-heart"></i></a></li>
-                      <li class="list-inline-item m-0 p-0"><a class="btn btn-sm btn-dark" href="cart.html">Add to cart</a></li>
-                      <li class="list-inline-item me-0"><a class="btn btn-sm btn-outline-dark" href="#productView" data-bs-toggle="modal"><i class="fas fa-expand"></i></a></li>
-                    </ul>
-                  </div>
-                </div>
-                <h6> <a class="reset-anchor" href="detail.html">Apple Watch</a></h6>
-                <p class="small text-muted">$351</p>
-              </div>
-            </div>
-          </div>
-        </section>
+        @include('home.products')
         <!-- SERVICES-->
-        <section class="py-5 bg-light">
+        {{-- <section class="py-5 bg-light">
           <div class="container">
             <div class="row text-center gy-3">
               <div class="col-lg-4">
@@ -312,9 +120,9 @@
               </div>
             </div>
           </div>
-        </section>
+        </section> --}}
         <!-- NEWSLETTER-->
-        <section class="py-5">
+        {{-- <section class="py-5">
           <div class="container p-0">
             <div class="row gy-3">
               <div class="col-lg-6">
@@ -331,9 +139,9 @@
               </div>
             </div>
           </div>
-        </section>
+        </section> --}}
       </div>
-      <footer class="bg-dark text-white">
+      {{-- <footer class="bg-dark text-white">
         <div class="container py-4">
           <div class="row py-5">
             <div class="col-md-4 mb-3 mb-md-0">
@@ -371,12 +179,11 @@
               </div>
               <div class="col-md-6 text-center text-md-end">
                 <p class="small text-muted mb-0">Template designed by <a class="text-white reset-anchor" href="https://bootstrapious.com/p/boutique-bootstrap-e-commerce-template">Bootstrapious</a></p>
-                <!-- If you want to remove the backlink, please purchase the Attribution-Free License. See details in readme.txt or license.txt. Thanks!-->
               </div>
             </div>
           </div>
         </div>
-      </footer>
+      </footer> --}}
       <!-- JavaScript files-->
       <script src="home/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
       <script src="home/vendor/glightbox/js/glightbox.min.js"></script>

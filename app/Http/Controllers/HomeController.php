@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use App\Models\User;
 
 class HomeController extends Controller
 {
@@ -11,4 +13,22 @@ class HomeController extends Controller
     {
         return view('home.userpage');
     }
+
+    // public function redirect()
+    // {
+
+    //     //get the usertype of the user
+    //     $usertype = Auth::user()->usertype;
+
+    //     if($usertype == '1')
+    //     {
+    //         return view('welcome');
+    //     }
+    //     else
+    //     {
+    //         return view('home.userpage');
+
+    //     }
+    // }
+
 }

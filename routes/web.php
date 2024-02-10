@@ -30,3 +30,15 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 });
+
+// Route::middleware([
+//     'auth:sanctum',
+//     config('jetstream.auth_session'),
+//     'verified',
+// ])->group(function () {
+//     Route::get('/redirect', function () {
+//         return view('home.userpage');
+//     })->name('redirect');
+// });
+
+route::get('/redirect', [HomeController::class, 'redirect']);
