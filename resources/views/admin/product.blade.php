@@ -85,7 +85,7 @@
                         </div>
                         <div class="div_design">
                             <label for="" >Product Category:</label>
-                            <select name="" id="" class="font_color" required>
+                            <select name="category" id="" class="font_color" required>
                                 <option value="" selected> Add A Category here</option>
 
                                 @foreach ($category as $category)
