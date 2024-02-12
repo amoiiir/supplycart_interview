@@ -14,21 +14,21 @@ class HomeController extends Controller
         return view('home.userpage');
     }
 
-    // public function redirect()
-    // {
+    public function redirect()
+    {
 
-    //     //get the usertype of the user
-    //     $usertype = Auth::user()->usertype;
+        //get the usertype of the user
+        $usertype = Auth::user()->usertype;
 
-    //     if($usertype == '1')
-    //     {
-    //         return view('welcome');
-    //     }
-    //     else
-    //     {
-    //         return view('home.userpage');
+        if($usertype == '1')
+        {
+            return view('admin.home');
+        }
+        else
+        {
+            return view('home.userpage');
 
-    //     }
-    // }
+        }
+    }
 
 }

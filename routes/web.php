@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\HomeController;
+use App\Providers\RouteServiceProvider;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,24 +22,16 @@ use App\Http\Controllers\HomeController;
 
 route::get('/', [HomeController::class, 'index']);
 
-Route::middleware([
-    'auth:sanctum',
-    config('jetstream.auth_session'),
-    'verified',
-])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
-});
+route::get('/redirect', [HomeController::class, 'redirect']);
 
 // Route::middleware([
 //     'auth:sanctum',
 //     config('jetstream.auth_session'),
 //     'verified',
 // ])->group(function () {
-//     Route::get('/redirect', function () {
-//         return view('home.userpage');
-//     })->name('redirect');
+//     Route::get('/dashboard', function () {
+//         return view('dashboard');
+//     })->name('dashboard');
 // });
 
-route::get('/redirect', [HomeController::class, 'redirect']);
+
