@@ -14,16 +14,13 @@ return new class extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id();
-            $table->string('title', 100);
-            $table->string('slug', 100);
+            $table->string('title', 100)->nullable();
             $table->string('image')->nullable();
-            $table->string('image_alt')->nullable();
             $table->text('description')->nullable();
+            $table->text('discount')->nullable();
+            $table->string('category')->nullable();
+            $table->string('quantity')->nullable();
             $table->unsignedDecimal('price',10,2);
-            $table->foreignId('created_by')->constrained('users')->nullable();
-            $table->foreignId('updated_by')->constrained('users')->nullable();
-            $table->foreignId('deleted_by')->constrained('users')->nullable(); 
-            $table->softDeletes();
             $table->timestamps();
         });
     }
