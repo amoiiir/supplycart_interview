@@ -14,10 +14,24 @@
             <div class="badge text-white bg-"></div><a class="d-block" href="{{ url('product_details', $products->id) }}"><img class="img-fluid w-100" src="product/{{ $products->image }}" alt="..."></a>
             <div class="product-overlay">
               <ul class="mb-0 list-inline">
-                <li class="list-inline-item m-0 p-0"><a class="btn btn-sm btn-outline-dark" href="#!"><i class="far fa-heart"></i></a></li>
-                <li class="list-inline-item m-0 p-0"><a class="btn btn-sm btn-dark" href="cart.html">Add to cart</a></li>
-                <li class="list-inline-item me-0"><a class="btn btn-sm btn-outline-dark" href="#productView" data-bs-toggle="modal"><i class="fas fa-expand"></i></a></li>
+                {{-- <li class="list-inline-item m-0 p-0"><a class="btn btn-sm btn-dark" href="cart.html">Add to cart</a></li> --}}
+
               </ul>
+              <form action="{{ url('add_cart', $products->id) }}" method="post">
+
+                @csrf
+                <div class="row">
+
+                    {{-- <div class="col-md-4">
+                        <input type="number" name="quantity" value="1" min="1" style="width: 100px;">
+                    </div> --}}
+
+                    <div class="col-md-4">
+                        <input class="btn btn-sm btn-dark change-text-color" type="submit" value="Add to Cart" >
+                    </div>
+
+                </div>
+              </form>
             </div>
           </div>
           <h6> <a class="reset-anchor" href="detail.html">{{ $products->title }}</a></h6>

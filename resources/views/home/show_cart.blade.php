@@ -1,9 +1,6 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <base href="/public">
-
-
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Boutique | Your One Stop Shop</title>
@@ -29,12 +26,38 @@
     <link rel="shortcut icon" href="img/favicon.png">
 
     <style>
-        h6{
-            padding: 12px;
+        .center {
+            margin: auto;
+            width: 100%;
+            max-width: 800px;
+            padding: 30px;
+            text-align: center;
+        }
+
+        table,th,td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+
+        .th_deg {
+            font-size: 15px;
+            background-color: lightblue;
+            padding: 5px;
+        }
+
+        table img {
+            width: 150px;
+            height: auto;
+        }
+
+        .total_deg {
+            font-size: 25px;
+            color: red;
+            padding: 40px;
+            text-align: center;
         }
 
     </style>
-
   </head>
   <body>
     <div class="page-holder">
@@ -42,44 +65,50 @@
       @include('home.header')
       <!--  Modal -->
 
-      <div class="col-xl-3 col-lg-4 col-sm-6" style="margin: auto; width: 50%; padding: 30px">
-        <div class="product text-center">
-          <div class="position-relative mb-3">
-            <div class="badge text-white bg-"></div><a class="d-block" href="{{ url('product_details', $product->id) }}"><img style="padding: 20px;" class="img-fluid w-100" src="product/{{ $product->image }}" alt="..."></a>
-          </div>
-          <h6> <a class="reset-anchor" href="detail.html">{{ $product->title }}</a></h6>
-          <p class="small text-muted">RM {{ $product->price }}</p>
-          {{-- <p class="small text-muted">{{ $products->discount }}</p> --}}
-
-          <h6>Product Category : {{ $product->category }}</h6>
-
-          <h6>Description : {{ $product->description }}</h6>
-
-          {{-- <h6>Quantity: {{ $product->quantity }}</h6> --}}
-
-          <form action="{{ url('add_cart', $product->id) }}" method="post">
-
-            @csrf
-            <div class="row">
-
-                {{-- <div class="col-md-4">
-                    <input type="number" name="quantity" value="1" min="1" style="width: 100px;">
-                </div> --}}
-
-                <div class="col-md-15">
-                    <input class="btn btn-sm btn-dark change-text-color" type="submit" value="Add to Cart">
-                </div>
-
-            </div>
-          </form>
-
-        </div>
-      </div>
-
       <!-- HERO SECTION-->
       <div class="container">
         <!-- CATEGORIES SECTION-->
+        {{-- @include('home.categories') --}}
+
+        <div >
+            <table class="center">
+                <tr>
+                    <th class="th_deg">Product Name</th>
+                    <th class="th_deg">Product Image</th>
+                    <th class="th_deg">Product Price</th>
+                    {{-- <th class="th_deg">Product Quantity</th> --}}
+                    <th class="th_deg">Action</th>
+                </tr>
+
+                {{-- logic to calculate the total price --}}
+
+                <?php $totalprice = 0; ?>
+
+                @foreach ($cart as $cart)
+
+                <tr>
+                    <td>{{ $cart->title }}</td>
+                    <td> <img src="/product/{{ $cart->image }}" alt=""> </td>
+                    <td>{{ $cart->price }}</td>
+                    {{-- <td>{{ $cart->quantity }}</td> --}}
+                    <td> <a href="{{ url('/remove_cart', $cart->id) }}" class="btn btn-danger" onclick="return confirm('Are you sure to remove this product?')" >Remove Item</a> </td>
+                </tr>
+
+                <?php $totalprice = $totalprice + $cart->price; ?>
+
+                @endforeach
+
+            </table>
+
+            <div>
+                <h1 class="total_deg">Total Price: RM {{ $totalprice }}</h1>
+            </div>
+
+        </div>
+
+
         <!-- TRENDING PRODUCTS-->
+        {{-- @include('home.products') --}}
         <!-- SERVICES-->
         {{-- <section class="py-5 bg-light">
           <div class="container">
@@ -226,3 +255,4 @@
     </div>
   </body>
 </html>
+
