@@ -5,13 +5,17 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
+use App\Models\Product;
 
 class HomeController extends Controller
 {
     //redirect to the landing page
     public function index()
     {
-        return view('home.userpage');
+        $product = Product::paginate(8);
+
+        //sent all the products to this page
+        return view('home.userpage', compact('product'));
     }
 
     public function redirect()
@@ -26,9 +30,16 @@ class HomeController extends Controller
         }
         else
         {
-            return view('home.userpage');
-
+            $product = Product::paginate(8);
+            return view('home.userpage', compact('product'));
         }
+    }
+
+    public function product_details($id)
+    {
+        $product = Product::find($id);
+        return view('home.product_details', compact('product'));
+
     }
 
 
