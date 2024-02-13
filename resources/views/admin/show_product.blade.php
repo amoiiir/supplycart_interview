@@ -7,7 +7,7 @@
 
     table.center {
         margin:auto;
-        width: 80%;
+        width: 70%;
         border: 2px solid white;
         text-align: center;
         margin-top: 40px;
@@ -48,6 +48,17 @@
         <div class="main-panel">
             <div class="content-wrapper">
 
+                {{-- show the success message --}}
+                @if(Session::has('success'))
+                <div class="alert alert-success">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">
+                        X
+                    </button>
+                    {{ Session::get('success') }}
+                </div>
+
+                @endif
+
                 <h2 class="font_size">All Products</h2>
 
                 <table class="center">
@@ -59,6 +70,8 @@
                         <th class="th_design">Price</th>
                         <th class="th_design">Discount Price</th>
                         <th class="th_design">Product Image</th>
+                        <th class="th_design">Delete</th>
+                        <th class="th_design">Edit</th>
                     </tr>
 
                     @foreach ($product as $product)
@@ -73,6 +86,12 @@
                         <td>
                             <img class="img_size" src="/product/{{ $product->image }}">
 
+                        </td>
+                        <td>
+                            <a href="{{ url('delete_product', $product->id) }}" class="btn btn-danger" onclick="return confirm('Are you sure to delete this?')">Delete</a>
+                        </td>
+                        <td>
+                            <a href="{{ url('update_product', $product->id) }}" class="btn btn-success">Update  </a>
                         </td>
                     </tr>
 
