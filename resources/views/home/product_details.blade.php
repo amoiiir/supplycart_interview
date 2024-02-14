@@ -76,6 +76,8 @@
         </div>
       </div>
 
+
+
       <!-- HERO SECTION-->
       <div class="container">
         <!-- CATEGORIES SECTION-->

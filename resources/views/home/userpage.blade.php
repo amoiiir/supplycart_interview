@@ -72,7 +72,7 @@
       <div class="container">
         @include('home.promohero')
         <!-- CATEGORIES SECTION-->
-        @include('home.categories')
+        {{-- @include('home.categories') --}}
         <!-- TRENDING PRODUCTS-->
         @include('home.products')
         <!-- SERVICES-->
@@ -141,7 +141,7 @@
           </div>
         </section> --}}
       </div>
-      {{-- <footer class="bg-dark text-white">
+      <footer class="bg-dark text-white">
         <div class="container py-4">
           <div class="row py-5">
             <div class="col-md-4 mb-3 mb-md-0">
@@ -183,7 +183,7 @@
             </div>
           </div>
         </div>
-      </footer> --}}
+      </footer>
       <!-- JavaScript files-->
       <script src="home/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
       <script src="home/vendor/glightbox/js/glightbox.min.js"></script>

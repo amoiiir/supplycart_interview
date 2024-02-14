@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use App\Models\Product;
 use App\Models\Cart;
+use App\Models\Order;
 
 class HomeController extends Controller
 {
@@ -108,6 +109,43 @@ class HomeController extends Controller
         $cart = Cart::find($id);
         $cart->delete();
         return redirect()->back();
+    }
+
+    public function cash_order()
+    {
+        $user=Auth::user();
+        $userid = $user->id;
+
+        $cart = Cart::where('user_id', $user->id)->get();
+
+        foreach($cart as $cart)
+        {
+            $order = new Order;
+            $order->name = $cart->name;
+            $order->email = $cart->email;
+            $order->phone = $cart->phone_num;
+            $order->address = $cart->address;
+            $order->user_id = $cart->user_id;
+
+            $order->title = $cart->title;
+            $order->quantity = $cart->quantity;
+            $order->price = $cart->price;
+            $order->image = $cart->image;
+            $order->product_id = $cart->product_id;
+
+            $order->payment_status = 'pending';
+            $order->delivery_status = 'pending';
+            $order->save();
+
+            //get the id of the cart
+            $cart_id = $cart->id;
+            $cart = Cart::find($cart_id);
+            $cart->delete();
+
+        }
+
+        return redirect()->back()->with('success', 'Order Placed Successfully');
+
     }
 
 

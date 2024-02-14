@@ -57,6 +57,11 @@
             text-align: center;
         }
 
+        .payment_deg {
+            text-align: center;
+            padding: 40px;
+        }
+
     </style>
   </head>
   <body>
@@ -69,6 +74,14 @@
       <div class="container">
         <!-- CATEGORIES SECTION-->
         {{-- @include('home.categories') --}}
+
+        {{-- catch the success message --}}
+        @if(Session::has('success'))
+            <div class="alert alert-success">
+                {{ Session::get('success') }}
+            </div>
+        @endif
+
 
         <div >
             <table class="center">
@@ -103,6 +116,23 @@
             <div>
                 <h1 class="total_deg">Total Price: RM {{ $totalprice }}</h1>
             </div>
+
+        </div>
+
+        <div class="payment_deg">
+            <h1 style="font-size: 25px; padding-bottom: 20px;">Proceed to Payment</h1>
+
+            <form action="{{ url('cash_order') }}" method="POST">
+
+            @csrf
+
+            <input class="" type="number" name="inputval" placeholder="Input valid value">
+
+            {{-- <input type="submit" class="btn btn-danger" name="submit" value="Confirm Payment"> --}}
+
+            <a class="btn btn-danger">Confirm Payment</a>
+
+        </form>
 
         </div>
 

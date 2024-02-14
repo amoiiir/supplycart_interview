@@ -14,11 +14,23 @@ return new class extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
-            $table->decimal('total_price',20,2);
-            $table-> string('status', 45);
+
+            $table->string('name')->nullable();
+            $table->string('email')->nullable();
+            $table->string('phone')->nullable();
+            $table->string('address')->nullable();
+            $table->string('user_id')->nullable();
+
+            $table->string('title')->nullable();
+            $table->string('quantity')->nullable();
+            $table->string('price')->nullable();
+            $table->string('image')->nullable();
+            $table->string('product_id')->nullable();
+
+            $table->string('payment_status')->nullable();
+            $table->string('delivery_status')->nullable();
+
             $table->timestamps();
-            $table->foreignId('created_by')->constrained('users')->nullable();
-            $table->foreignId('updated_by')->constrained('users')->nullable();
         });
     }
 

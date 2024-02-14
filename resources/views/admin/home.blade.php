@@ -12,7 +12,14 @@
         <!-- partial:partials/_navbar.html -->
         @include('admin.navbar')
         <!-- partial -->
-        @include('admin.body')
+        {{-- @include('admin.body') --}}
+        <div class="main-panel">
+            <div class="content-wrapper">
+
+
+            </div>
+        </div>
+
       <!-- page-body-wrapper ends -->
     <!-- container-scroller -->
     <!-- plugins:js -->

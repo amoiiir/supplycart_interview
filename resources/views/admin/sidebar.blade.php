@@ -57,11 +57,11 @@
         <span class="nav-link">Navigation</span>
       </li>
       <li class="nav-item menu-items">
-        <a class="nav-link" href="index.html">
+        <a class="nav-link" href="{{ url('view_category') }}">
           <span class="menu-icon">
-            <i class="mdi mdi-speedometer"></i>
+            <i class="mdi mdi-playlist-play"></i>
           </span>
-          <span class="menu-title">Dashboard</span>
+          <span class="menu-title">Category</span>
         </a>
       </li>
       <li class="nav-item menu-items">
@@ -78,14 +78,6 @@
             <li class="nav-item"> <a class="nav-link" href="{{ url('/show_product') }}">Show Products</a></li>
           </ul>
         </div>
-      </li>
-      <li class="nav-item menu-items">
-        <a class="nav-link" href="{{ url('view_category') }}">
-          <span class="menu-icon">
-            <i class="mdi mdi-playlist-play"></i>
-          </span>
-          <span class="menu-title">Category</span>
-        </a>
       </li>
     </ul>
   </nav>
