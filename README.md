@@ -25,6 +25,7 @@ php artisan serve
 1. No usage of tailwind css and vue.js for this project
 2. There is no payment method for users to see their paid items
 3. Users are unable to buy more than 1 quantity
+4. Did not host this project to any website as there is confilct using vue.js and tailwind.css
 
 Regards,
 Muhammad Amir Hamzah
